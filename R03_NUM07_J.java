@@ -4,6 +4,6 @@ public class NaNComparison {
     double result = Math.cos(1/x);
     if(Double.isNaN(result)){
       System.out.println("result is NaN";
-
-
+    }
+  }
 }
