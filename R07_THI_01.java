@@ -1,23 +1,22 @@
-public final class NetworkHandler{
-    private final ExecutorService executor;
-   
-    NetworkHandler(int poolSize){
+public final class NetHandler{
+    private final ExecutorService executor;  
+    NetHandler(int poolSize){
       this.executor= Executors.newFixedThreadPool(poolSize);
     }
    
-    public void startThreads(){
+    public void start(){
       for (int i=0; i<3; i++) {
         executor.execute(new HandleRequest());
       }
     }
    
-    public void shutdownPool(){
+    public void shutdown(){
       executor.shutdown();
     }
    
     public static void main(String[] args){
       NetworkHandler nh= new NetworkHandler(3);
-      nh.startThreads();
-      nh.shutdownPool();
+      nh.start();
+      nh.shutdown();
     }
   }
